@@ -1,0 +1,22 @@
+{
+  "name": "discord",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "website",
+    "server"
+  ],
+  "scripts": {
+    "migration:create": "yarn workspace server migration:create",
+    "migration:generate": "yarn workspace server migration:generate",
+    "migration:run": "yarn workspace server migration:run",
+    "migration:revert": "yarn workspace server migration:revert",
+    "server": "yarn workspace server build && yarn workspace server start",
+    "website": "yarn workspace website dev",
+    "gen": "yarn workspace website gen",
+    "start": "concurrently \"yarn run server\" \"sleep 20 && yarn run website\""
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
